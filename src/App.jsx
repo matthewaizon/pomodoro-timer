@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   const [seconds, setSeconds] = useState(0)
-  const [minutes, setMinutes] = useState(1)
+  const [minutes, setMinutes] = useState(52)
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
@@ -13,7 +13,7 @@ function App() {
       interval = setInterval(() => {
         setSeconds((prevSeconds) => {
           if (prevSeconds === 0 && minutes > 0) {
-            return 3
+            return 59
           } 
           else if (prevSeconds === 0 && minutes === 0) {
             return 0
@@ -44,7 +44,7 @@ function App() {
   const stop = () => setIsActive(false)
   const reset = () => {
     stop()
-    setMinutes(1)
+    setMinutes(52)
     setSeconds(0)
   }
 
