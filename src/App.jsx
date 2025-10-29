@@ -5,6 +5,7 @@ function App() {
   const [seconds, setSeconds] = useState(0)
   const [minutes, setMinutes] = useState(52)
   const [isActive, setIsActive] = useState(false)
+  const [mode, setMode] = useState(0)
 
   useEffect(() => {
     let interval
@@ -41,13 +42,25 @@ function App() {
   }, [isActive, seconds])
 
   const start = () => setIsActive(true)
+  
   const stop = () => setIsActive(false)
-  const reset = () => {
+
+  const reset = (prevMode = mode) => {
     stop()
-    setMinutes(52)
+    if (prevMode == 0) {
+      setMinutes(52)
+    } else if (prevMode == 1) {
+      setMinutes(17)
+    }
     setSeconds(0)
   }
 
+  const switchMode = () => {
+    const newMode = mode === 0 ? 1 : 0
+    setMode(newMode)
+    reset(newMode)
+  }
+  
   const formatSeconds = String(seconds).padStart(2, '0')
   const formatMinutes = String(minutes).padStart(2, '0')
 
@@ -55,9 +68,11 @@ function App() {
     <div>
       <h1>Pomodoro Timer</h1>
       <h2>{formatMinutes}:{formatSeconds}</h2>
+      <h3>{mode}</h3>
       <button onClick={start}>Start</button>
       <button onClick={stop}>Stop</button>
       <button onClick={reset}>Reset</button>
+      <button onClick={switchMode}>Switch Mode</button>
     </div>
   )
 }
