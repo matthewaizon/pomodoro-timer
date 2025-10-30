@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/matthewaizon/pomodoro-timer/blob/mode-update/public/timer.png" height="200" alt="timer">
+  <img src="https://github.com/matthewaizon/pomodoro-timer/blob/main/public/white-timer.png" height="200" alt="timer">
   <h1>Pomodoro Timer for Productivity</h1>
 </div>
 
