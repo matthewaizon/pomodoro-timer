@@ -1,3 +1,18 @@
+<div align="center">
+  <img src="https://github.com/matthewaizon/pomodoro-timer/blob/mode-update/public/timer.png" height="200" alt="timer">
+  <h1>Pomodoro Timer for Productivity</h1>
+</div>
+
+<div align="justify">
+  <p>
+    This timer is made for productivy purpose and to practice my javascripting skills using React.js.
+    The timer includes a start, stop and reset button to control the timer. However, it is important to
+    note that the timer only has two mode. Work mode that has 52 minutes and rest mode than has 17 minutes.
+    <br><br>
+    <em>Note that this project is for fun only</em>
+  </p>
+</div>
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
