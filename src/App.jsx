@@ -41,23 +41,36 @@ function App() {
   }, [isActive, seconds])
 
   const start = () => setIsActive(true)
+  
   const stop = () => setIsActive(false)
-  const reset = () => {
+
+  const work = () => {
     stop()
     setMinutes(52)
     setSeconds(0)
   }
 
+  const rest = () => {
+    stop()
+    setMinutes(17)
+    setSeconds(0)
+  }
+  
   const formatSeconds = String(seconds).padStart(2, '0')
   const formatMinutes = String(minutes).padStart(2, '0')
 
   return (
     <div>
       <h1>Pomodoro Timer</h1>
-      <h2>{formatMinutes}:{formatSeconds}</h2>
-      <button onClick={start}>Start</button>
-      <button onClick={stop}>Stop</button>
-      <button onClick={reset}>Reset</button>
+
+      <div>
+        <h2>{formatMinutes}:{formatSeconds}</h2>
+        <button onClick={start}>Start</button>
+        <button onClick={stop}>Stop</button>
+        <br></br>
+        <button onClick={work}>Work</button>
+        <button onClick={rest}>Rest</button>
+      </div>
     </div>
   )
 }
