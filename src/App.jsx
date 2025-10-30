@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-// test
 function App() {
   const [seconds, setSeconds] = useState(0)
   const [minutes, setMinutes] = useState(52)
   const [isActive, setIsActive] = useState(false)
-  const [mode, setMode] = useState(0)
 
   useEffect(() => {
     let interval
@@ -46,20 +44,16 @@ function App() {
   
   const stop = () => setIsActive(false)
 
-  const reset = (prevMode = mode) => {
+  const work = () => {
     stop()
-    if (prevMode == 0) {
-      setMinutes(52)
-    } else if (prevMode == 1) {
-      setMinutes(17)
-    }
+    setMinutes(52)
     setSeconds(0)
   }
 
-  const switchMode = () => {
-    const newMode = mode === 0 ? 1 : 0
-    setMode(newMode)
-    reset(newMode)
+  const rest = () => {
+    stop()
+    setMinutes(17)
+    setSeconds(0)
   }
   
   const formatSeconds = String(seconds).padStart(2, '0')
@@ -68,12 +62,15 @@ function App() {
   return (
     <div>
       <h1>Pomodoro Timer</h1>
-      <h2>{formatMinutes}:{formatSeconds}</h2>
-      <h3>{mode}</h3>
-      <button onClick={start}>Start</button>
-      <button onClick={stop}>Stop</button>
-      <button onClick={reset}>Reset</button>
-      <button onClick={switchMode}>Switch Mode</button>
+
+      <div>
+        <h2>{formatMinutes}:{formatSeconds}</h2>
+        <button onClick={start}>Start</button>
+        <button onClick={stop}>Stop</button>
+        <br></br>
+        <button onClick={work}>Work</button>
+        <button onClick={rest}>Rest</button>
+      </div>
     </div>
   )
 }
